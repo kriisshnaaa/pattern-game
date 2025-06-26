@@ -6,7 +6,7 @@ function next() {
     $("h1").text("Level " + level);
     var randomColor = buttonColours[random()];
     pattern.push(randomColor);
-   for (let i = 0; i < pattern.length; i++) {
+       for (let i = 0; i < pattern.length; i++) {
         setTimeout(function () {
             var audio = new Audio('./' + pattern[i] + '.mp3');
             audio.play();
@@ -14,6 +14,7 @@ function next() {
         }, i * 600); 
     }
 }
+
 $(".btn").on("click", function () {
     var chosenColour = this.id;
     $("#" + this.id).fadeOut(100).fadeIn(100);
