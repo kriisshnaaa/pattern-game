@@ -1,0 +1,1 @@
+$("#"+randomColor).fadeOut(100).fadeIn(100);
