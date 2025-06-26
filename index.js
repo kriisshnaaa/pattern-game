@@ -6,7 +6,7 @@ function next() {
     $("h1").text("Level " + level);
     var randomColor = buttonColours[random()];
     pattern.push(randomColor);
-    var audio = new Audio('./sounds/' + randomColor + '.mp3');
+    var audio = new Audio('./' + randomColor + '.mp3');
     audio.play();
     $("#" + randomColor).fadeOut(100).fadeIn(100);
 }
@@ -14,7 +14,7 @@ $(".btn").on("click", function () {
     var chosenColour = this.id;
     $("#" + this.id).fadeOut(100).fadeIn(100);
     userPattern.push(chosenColour);
-    var audio1 = new Audio('./sounds/' + this.id + '.mp3');
+    var audio1 = new Audio('./' + this.id + '.mp3');
     audio1.play();
     checkAnswer(userPattern.length - 1)
 })
@@ -37,7 +37,7 @@ function checkAnswer(current) {
         }
     }
     else {
-        var wrong = new Audio('./sounds/wrong.mp3');
+        var wrong = new Audio('./wrong.mp3');
         wrong.play();
         $("body").addClass("game-over");
         setTimeout(function () {
