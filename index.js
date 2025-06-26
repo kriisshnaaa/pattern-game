@@ -6,9 +6,13 @@ function next() {
     $("h1").text("Level " + level);
     var randomColor = buttonColours[random()];
     pattern.push(randomColor);
-    var audio = new Audio('./' + randomColor + '.mp3');
-    audio.play();
-    $("#" + randomColor).fadeOut(100).fadeIn(100);
+   for (let i = 0; i < pattern.length; i++) {
+        setTimeout(function () {
+            var audio = new Audio('./' + pattern[i] + '.mp3');
+            audio.play();
+            $("#" + pattern[i]).fadeOut(100).fadeIn(100);
+        }, i * 600); 
+    }
 }
 $(".btn").on("click", function () {
     var chosenColour = this.id;
