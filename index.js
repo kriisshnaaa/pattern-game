@@ -25,7 +25,11 @@ $(".btn").on("click", function () {
 })
 var keypress = 0;
 var level = 0;
-$("body").on("keypress", function () {
+function isMobile(){
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+if (isMobile()){
+    $("body").on("click", function () {
     keypress++;
     if (keypress === 1) {
         pattern = [];
@@ -34,6 +38,17 @@ $("body").on("keypress", function () {
 
     }
 })
+}
+else{
+$("body").on("keypress", function () {
+    keypress++;
+    if (keypress === 1) {
+        pattern = [];
+        userPattern = [];
+        next();
+
+    }
+})}
 function checkAnswer(current) {
     if (pattern[current] == userPattern[current]) {
         if (pattern.length == userPattern.length) {
