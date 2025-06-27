@@ -19,7 +19,7 @@ function next() {
     }
 }
 
-$(".btn").on("click touchstart", function () {
+$(".btn").on("click", function () {
     var chosenColour = this.id;
     $("#" + chosenColour).fadeOut(100).fadeIn(100);
     userPattern.push(chosenColour);
@@ -31,11 +31,11 @@ $(".btn").on("click touchstart", function () {
 });
 
 $(document).on("keydown touchstart", function () {
-    if (keypress === 0) {
+    keypress++;
+    if (keypress === 1) {
         pattern = [];
         userPattern = [];
         level = 0;
-        keypress++;
         next();
     }
 });
@@ -54,9 +54,12 @@ function checkAnswer(current) {
         setTimeout(function () {
             $("body").removeClass("game-over");
         }, 200);
-
-        $("h1").text("Game Over, Press Any Key to Restart!!");
-        startover();
+        for(let i=0;i<5;i++){
+        setTimeout(function(){
+        $("h1").text("Game Over Restarting in  "+(5-i)+"..");
+        },i*600);
+        }
+       setTimeout(startover, 3000);
     }
 }
 
@@ -65,6 +68,7 @@ function startover() {
     userPattern = [];
     level = 0;
     keypress = 0;
+    $("h1").text("Press A Key to Start");
 }
 
 function random() {
