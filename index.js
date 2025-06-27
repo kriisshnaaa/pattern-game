@@ -25,21 +25,7 @@ $(".btn").on("click", function () {
 })
 var keypress = 0;
 var level = 0;
-function isMobile(){
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-if (isMobile()){
-    $("body").on("click", function () {
-    keypress++;
-    if (keypress === 1) {
-        pattern = [];
-        userPattern = [];
-        next();
 
-    }
-})
-}
-else{
 $("body").on("keypress", function () {
     keypress++;
     if (keypress === 1) {
@@ -48,7 +34,7 @@ $("body").on("keypress", function () {
         next();
 
     }
-})}
+});
 function checkAnswer(current) {
     if (pattern[current] == userPattern[current]) {
         if (pattern.length == userPattern.length) {
